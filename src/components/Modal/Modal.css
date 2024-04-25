@@ -1,0 +1,39 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100svw;
+  height: 100svh;
+  z-index: 2;
+  background-color: rgb(0 0 0 / 80%);
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal_open {
+  display: flex;
+}
+
+.modal__content {
+  padding: 40px;
+  background: #fff;
+  border-radius: 8px;
+  opacity: 1;
+  position: relative;
+}
+
+.modal__close {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  transition: all 0.3s ease-out;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

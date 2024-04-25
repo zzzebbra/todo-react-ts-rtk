@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
+import Main from './components/Main/Main';
+import Modal from './components/Modal/Modal';
+import AddTaskForm from './components/AddTaskForm/AddTaskForm';
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header className="app-header">
+        <h1>ToDo list</h1>
       </header>
+      <Main openModal={openModal} />
+      <Modal isOpen={isOpen} closeModal={closeModal}><AddTaskForm closeModal={closeModal} /></Modal>
     </div>
   );
 }
